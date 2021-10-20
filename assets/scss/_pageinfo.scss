@@ -1,11 +1,12 @@
 .pageinfo {
     font-weight: $font-weight-medium;
-    background: $gray-100;
+    background: $white;
     color: inherit;
     border-radius: 0;
-    margin: 2rem;
-    padding: 1.5rem;
-    padding-bottom: 0.5rem;
+    // margin: 2rem;
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    // padding-bottom: 0.5rem;
 
     @each $color, $value in $theme-colors {
         &-#{$color} {
