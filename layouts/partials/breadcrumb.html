@@ -1,5 +1,6 @@
 {{ $p1 := (dict "p1" .).p1 }}
 {{ if not $p1.Parent.IsHome }}
+  <hr class="panel-line">
   <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
     <ol class="breadcrumb spb-1">
       {{ template "breadcrumbnav" (dict "p1" . "p2" .) }}
