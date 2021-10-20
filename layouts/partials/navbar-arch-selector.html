@@ -1,0 +1,8 @@
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	{{ .Site.Params.arch_menu }}
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	{{ range .Site.Params.architectures }}
+	  <a class="dropdown-item" href="{{ .url | absURL }}">{{ .name }}</a>
+	{{ end }}
+</div>
