@@ -5,6 +5,7 @@
     max-width: 90%;
 
     &.form-control:focus {
+        color: $gray-600;
         border-color: lighten($primary, 60%);
         box-shadow: 0 0 0 2px lighten($primary, 30%);
     }

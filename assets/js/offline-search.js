@@ -164,7 +164,7 @@
                     $entry.append(
                         $('<small>').addClass('d-block text-muted').text(r.ref)
                     );
-
+                    console.log(doc)
                     $entry.append(
                         $('<a>')
                             .addClass('d-block')
