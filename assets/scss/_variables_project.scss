@@ -16,3 +16,25 @@ $danger: #ED6A5A !default;
 $white: #fff !default;
 $light: #D3F3EE !default;
 
+
+$hint-colors: (
+  info: #6bf,
+  warning: #fd6,
+  danger: #f66,
+) !default;
+
+
+.hint {
+  padding: 15px !important;
+  color: rgb(84, 84, 84) !important;
+  white-space: pre-wrap;
+  @each $name, $color in $hint-colors {
+    &.#{$name} {
+      border-color: $color;
+      background-color: rgba($color, 0.1);
+    }
+  }
+  p {
+    margin: 0px;
+  }
+}
