@@ -1,3 +1,5 @@
+<div class="td-toc" >
+
 {{- $headers := findRE "<h[1-4].*?>(.|\n])+?</h[1-4]>" .Content -}}
 {{- $has_headers := ge (len $headers) 1 -}}
 {{- if $has_headers -}}
@@ -61,10 +63,16 @@
           {{- end -}}
         {{- end -}}
         <li>
-          <a href="#{{- $cleanedID  -}}">{{- strings.TrimPrefix "modify {vmNameOrUUID}" $header | safeHTML -}}</a>
+          {{- if eq $headerLevel 2 -}}
+            <h4><a href="#{{- $cleanedID  -}}">{{ strings.TrimPrefix "modify {vmNameOrUUID}" $header | safeHTML }}<hr /></a></h4>
+          {{- else if eq $headerLevel 3 -}}
+            <h5><a href="#{{- $cleanedID  -}}">{{ strings.TrimPrefix "modify {vmNameOrUUID}" $header | safeHTML }}</a></h5>
+          {{- else -}}
+            <a href="#{{- $cleanedID  -}}">{{- strings.TrimPrefix "modify {vmNameOrUUID}" $header | safeHTML -}}</a>
+          {{- end -}}
     {{- else -}}
     <li>
-      <a href="#{{- $cleanedID -}}">{{- $header | safeHTML -}}</a>
+      <h4><a href="#{{- $cleanedID -}}">{{ $header | safeHTML }}<hr /></a></h4>
     {{- end -}}
   {{- end -}}
   <!-- {{- $firstHeaderLevel := len (seq (index (findRE "[1-4]" (index $headers 0) 1) 0)) -}} -->
@@ -81,3 +89,5 @@
 </ul>
 </div>
 {{- end -}}
+
+</div>

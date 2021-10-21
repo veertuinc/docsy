@@ -16,7 +16,7 @@ $danger: #ED6A5A !default;
 $white: #fff !default;
 $light: #f1eef7 !default;
 
-$dark: #4e4261 !default;
+$dark: #534c61 !default;
 $blue: #72A1E5 !default;
 $orange: #BA5A31 !default;
 $gray-100: #f8f9fa !default;
@@ -48,6 +48,9 @@ $link-color: darken($blue, 10%) !default;
 $link-decoration: none !default;
 $link-hover-color: darken($link-color, 10%) !default;
 $link-hover-decoration: none !default;
+
+$font-size-base: 0.9rem !default;
+
 
 $hint-colors: (
   info: #6bf,
