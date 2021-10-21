@@ -50,6 +50,11 @@
 {{ $withChild := gt (len $pages) 0 -}}
 {{ $manualLink := cond (isset $s.Params "manuallink") $s.Params.manualLink ( cond (isset $s.Params "manuallinkrelref") (relref $s $s.Params.manualLinkRelref) $s.RelPermalink) -}}
 {{ $manualLinkTitle := cond (isset $s.Params "manuallinktitle") $s.Params.manualLinkTitle $s.Title -}}
+{{ $gettingStartedExposed := or ( or (eq $p.File.Dir "arm/") (eq $p.File.Dir "intel/") ) (eq $p.LinkTitle "What is Anka?") }}
+{{ $expanded := false }}
+{{ if and ($gettingStartedExposed) (eq $s.LinkTitle "Getting Started") }}
+  {{ $expanded = true }}
+{{ end }}
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section{{ if $withChild }} with-child{{ else }} without-child{{ end }}{{ if $activePath }} active-path{{ end }}{{ if (not (or $show $p.Site.Params.ui.sidebar_menu_foldable )) }} collapse{{ end }}" id="{{ $mid }}-li">
   {{ if (and $p.Site.Params.ui.sidebar_menu_foldable (ge $ulNr 1)) -}}
     <input type="checkbox" id="{{ $mid }}-check"{{ if $activePath}} checked{{ end }}/>
@@ -59,7 +64,7 @@
   {{- end }}
   {{- if $withChild }}
   {{- $ulNr := add $ulNr 1 }}
-  <ul class="ul-{{ $ulNr }}{{ if (gt $ulNr 1)}} foldable{{end}}">
+  <ul class="ul-{{ $ulNr }}{{ if and (gt $ulNr 1) (not ($expanded))}} foldable{{end}}">
     {{ range $pages -}}
       {{ if (not (and (eq $s $p.Site.Home) (eq .Params.toc_root true))) -}}
         {{ template "section-tree-nav-section" (dict "page" $p "section" . "shouldDelayActive" $shouldDelayActive "sidebarMenuTruncate" $sidebarMenuTruncate "ulNr" $ulNr "ulShow" $ulShow) }}
