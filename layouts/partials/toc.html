@@ -64,15 +64,15 @@
         {{- end -}}
         <li>
           {{- if eq $headerLevel 2 -}}
-            <h4><a href="#{{- $cleanedID  -}}">{{ strings.TrimPrefix "modify {vmNameOrUUID}" $header | safeHTML }}<hr /></a></h4>
+            <h4><a style="font-weight: 600;" href="#{{- $cleanedID  -}}">{{ strings.TrimPrefix "modify {vmNameOrUUID}" $header | safeHTML }}<hr /></a></h4>
           {{- else if eq $headerLevel 3 -}}
-            <h5><a href="#{{- $cleanedID  -}}">{{ strings.TrimPrefix "modify {vmNameOrUUID}" $header | safeHTML }}</a></h5>
+            <h5><a style="font-weight: 500; padding-bottom: 10px;" href="#{{- $cleanedID  -}}">{{ strings.TrimPrefix "modify {vmNameOrUUID}" $header | safeHTML }}</a></h5>
           {{- else -}}
-            <a href="#{{- $cleanedID  -}}">{{- strings.TrimPrefix "modify {vmNameOrUUID}" $header | safeHTML -}}</a>
+            <a style="font-weight: 300;" href="#{{- $cleanedID  -}}">{{- strings.TrimPrefix "modify {vmNameOrUUID}" $header | safeHTML -}}</a>
           {{- end -}}
     {{- else -}}
     <li>
-      <h4><a href="#{{- $cleanedID -}}">{{ $header | safeHTML }}<hr /></a></h4>
+      <h4><a style="font-weight: 700;" href="#{{- $cleanedID -}}">{{ $header | safeHTML }}<hr /></a></h4>
     {{- end -}}
   {{- end -}}
   <!-- {{- $firstHeaderLevel := len (seq (index (findRE "[1-4]" (index $headers 0) 1) 0)) -}} -->
