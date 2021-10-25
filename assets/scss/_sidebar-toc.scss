@@ -4,17 +4,17 @@
 .td-sidebar-toc {
     border-left: 1px solid $border-color;
 
-    @supports (position: sticky) {
-        position: sticky;
-        top: 4rem;
-        height: calc(100vh - 4rem);
-        overflow-y: auto;
-    }
+    // @supports (position: sticky) {
+    //     position: sticky;
+    //     top: 4rem;
+    //     height: calc(100vh - 4rem);
+    //     overflow-y: auto;
+    // }
   
     order: 2;
-    padding-top: 0.7rem;
-    padding-bottom: 0rem;
-    vertical-align: top;
+    // padding-top: 0.7rem;
+    // padding-bottom: 0rem;
+    // vertical-align: top;
 
 }
 

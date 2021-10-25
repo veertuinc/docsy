@@ -53,6 +53,14 @@ $font-size-base: 0.9rem !default;
 
 .td-sidebar-nav-active-item { color: $td-sidebar-tree-root-color; }
 
+ol {
+  margin-block-start: 1em !important;
+  margin-block-end: 1em !important;
+  margin-inline-start: 0px !important;
+  margin-inline-end: 0px !important;
+  padding-inline-start: 40px !important;
+}
+
 $hint-colors: (
   info: #6bf,
   warning: #fd6,
@@ -64,7 +72,6 @@ $hint-colors: (
   margin: 1.3rem 0 0rem 0;
   padding: 15px !important;
   color: rgb(84, 84, 84) !important;
-  white-space: pre-wrap;
   @each $name, $color in $hint-colors {
     &.#{$name} {
       border-color: $color;
