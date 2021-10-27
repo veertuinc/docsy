@@ -82,3 +82,22 @@ $hint-colors: (
     margin: 0px;
   }
 }
+
+table {
+  width: 97%;
+
+  tr {
+    border-top: 1px solid #c6cbd1;
+  }
+  tr:nth-child(2n+1){  
+    background-color: #7e57c20a !important;
+  }
+  th {
+    background-color: #7e57c238;
+  }
+  td, th {
+    padding: 6px 13px;
+    border: 1px solid #dfe2e53a;
+  }
+  margin-bottom: 20px;
+}

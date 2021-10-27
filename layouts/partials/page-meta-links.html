@@ -9,13 +9,13 @@
   {{ if $gh_url }}
      <a href="{{ $gh_url }}" target="_blank"><i class="fa fa-edit fa-fw"></i> {{ T "post_edit_this" }}</a>     
   {{ else if $gh_repo }}
-    {{ $gh_repo_path := printf "%s/content/%s" $gh_branch $pathFormatted }}
+    {{ $gh_repo_path := printf "%s/%s" $gh_branch $pathFormatted }}
     {{ if and ($gh_subdir) (.Site.Language.Lang) }}
-      {{ $gh_repo_path = printf "%s/%s/content/%s/%s" $gh_branch $gh_subdir ($.Site.Language.Lang) $pathFormatted }}
+      {{ $gh_repo_path = printf "%s/%s/%s/%s" $gh_branch $gh_subdir ($.Site.Language.Lang) $pathFormatted }}
     {{ else if .Site.Language.Lang }}
-      {{ $gh_repo_path = printf "%s/content/%s/%s" $gh_branch ($.Site.Language.Lang) $pathFormatted }}
+      {{ $gh_repo_path = printf "%s/%s" $gh_branch $pathFormatted }}
     {{ else if $gh_subdir }}
-      {{ $gh_repo_path = printf "%s/%s/content/%s" $gh_branch $gh_subdir $pathFormatted }}
+      {{ $gh_repo_path = printf "%s/%s/%s" $gh_branch $gh_subdir $pathFormatted }}
     {{ end }}
     {{ $editURL := printf "%s/edit/%s" $gh_repo $gh_repo_path }}
     {{ $createURL := printf "%s/edit/%s" $gh_repo $gh_repo_path }}

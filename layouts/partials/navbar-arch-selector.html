@@ -3,6 +3,6 @@
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 	{{ range .Site.Params.architectures }}
-	  <a class="dropdown-item" href="{{ .url | absURL }}">{{ .name }}</a>
+	  <a class="dropdown-item" href="{{ .url | absURL }}/">{{ .name }}</a>
 	{{ end }}
 </div>
