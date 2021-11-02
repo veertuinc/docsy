@@ -125,8 +125,8 @@
                         marginBottom: '1em',
                     })
                     .append(
-                        $('<span>')
-                            .text('Search results')
+                        $('<h3>')
+                            .text('Search Results')
                             .css({ fontWeight: 'bold' })
                     )
                     .append(
@@ -155,29 +155,31 @@
             } else {
                 results.forEach((r) => {
                     const doc = resultDetails.get(r.ref);
-                    const href =
-                        $searchInput.data('offline-search-base-href') +
-                        r.ref.replace(/^\//, '');
+                    if (doc.title !== "") {
+                      const href =
+                      $searchInput.data('offline-search-base-href') +
+                      r.ref.replace(/^\//, '');
 
-                    const $entry = $('<div>').addClass('mt-4');
+                      const $entry = $('<div>').addClass('mt-4');
 
-                    $entry.append(
-                        $('<small>').addClass('d-block text-muted').text(r.ref)
-                    );
-                    console.log(doc)
-                    $entry.append(
-                        $('<a>')
-                            .addClass('d-block')
-                            .css({
-                                fontSize: '1.2rem',
-                            })
-                            .attr('href', href)
-                            .text(doc.title)
-                    );
+                      $entry.append(
+                          $('<small>').addClass('d-block text-muted').text(r.ref)
+                      );
+                      // console.log(doc)
+                      $entry.append(
+                          $('<a>')
+                              .addClass('d-block')
+                              .css({
+                                  fontSize: '1rem',
+                              })
+                              .attr('href', href)
+                              .text(doc.title)
+                      );
 
-                    $entry.append($('<p>').text(doc.excerpt));
+                      $entry.append($('<p>').text(doc.excerpt));
 
-                    $searchResultBody.append($entry);
+                      $searchResultBody.append($entry);
+                    }
                 });
             }
 
