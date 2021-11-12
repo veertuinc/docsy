@@ -81,6 +81,12 @@ $hint-colors: (
   p {
     margin: 0px;
   }
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    margin-top: 0rem !important;
+  }
+  ul {
+    margin-bottom: 0rem !important;
+  }
 }
 
 table {
@@ -104,12 +110,6 @@ table {
 
 .tab-content {
   padding: 0 1rem;
-}
-
-blockquote {
-  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-    margin-top: 0rem !important;
-  }
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
