@@ -1,7 +1,9 @@
 {{ define "main" }}
 <div class="td-content">
-  {{ if not .Parent.IsHome }}
-	  <h1>{{ .Title }}</h1>
+  {{ if .Parent }}
+    {{ if not .Parent.IsHome }}
+      <h1>{{ .Title }}</h1>
+    {{ end }}
   {{ end }}
   {{ with .Params.description }}<div class="lead">{{ . | markdownify }}</div>{{ end }}
 	<header class="article-meta">
