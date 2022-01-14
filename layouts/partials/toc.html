@@ -63,12 +63,16 @@
           {{- end -}}
         {{- end -}}
         <li>
+          {{- $newHeader := strings.TrimPrefix "modify {name/uuid}" $header -}}
+          {{- $newHeader = strings.TrimPrefix "show {name/uuid}" $newHeader -}}
+          {{- $newHeader = strings.TrimPrefix "registry {name/uuid}" $newHeader -}}
+          {{- $newHeader = strings.TrimPrefix "registry show {name/uuid}" $newHeader -}}
           {{- if eq $headerLevel 2 -}}
-            <h4><a style="font-weight: 600;" href="#{{- $cleanedID  -}}">{{ strings.TrimPrefix "modify {vmNameOrUUID}" $header | safeHTML }}<hr /></a></h4>
+            <h4><a style="font-weight: 600;" href="#{{- $cleanedID  -}}">{{ $newHeader | safeHTML }}<hr /></a></h4>
           {{- else if eq $headerLevel 3 -}}
-            <h5><a style="font-weight: 500; padding-bottom: 10px;" href="#{{- $cleanedID  -}}">{{ strings.TrimPrefix "modify {vmNameOrUUID}" $header | safeHTML }}</a></h5>
+            <h5><a style="font-weight: 500; padding-bottom: 10px;" href="#{{- $cleanedID  -}}">{{ $newHeader | safeHTML }}</a></h5>
           {{- else -}}
-            <a style="font-weight: 300;" href="#{{- $cleanedID  -}}">{{- strings.TrimPrefix "modify {vmNameOrUUID}" $header | safeHTML -}}</a>
+            <a style="font-weight: 300;" href="#{{- $cleanedID  -}}">{{- $newHeader | safeHTML -}}</a>
           {{- end -}}
     {{- else -}}
     <li>
