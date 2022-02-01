@@ -5,6 +5,8 @@
 .td-content {
     order: 1;
 
+    padding: 0rem 1.5rem 0px 1rem;
+
     p, li, td {
         font-weight: $font-weight-body-text;
     }
@@ -12,6 +14,11 @@
     > h1 {
         font-weight: $font-weight-bold;
         margin-bottom: 1rem;
+    }
+
+  
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+        margin-left: -0.8rem !important;
     }
 
     > h2 {
