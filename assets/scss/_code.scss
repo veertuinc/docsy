@@ -17,7 +17,7 @@
     // Inline code
     p code, li > code, table code {
         color: inherit;
-        padding: 0.2em 0.4em;
+        padding: 0.2em 0.7em;
         margin: 0;
         font-size: 85%;
         word-break: normal;
@@ -38,7 +38,7 @@
      
 
         > code {
-	          background-color: inherit !important;
+	        background-color: inherit !important;
             padding: 0;
             margin: 0;
             font-size: 100%;
@@ -46,6 +46,10 @@
             white-space: pre;
             border: 0;
         }
+    }
+
+    code {
+        padding: 0rem 0.3rem;
     }
 
     pre.mermaid {

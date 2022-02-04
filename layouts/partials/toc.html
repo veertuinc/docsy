@@ -68,7 +68,8 @@
           {{- $newHeader = strings.TrimPrefix "registry {name/uuid}" $newHeader -}}
           {{- $newHeader = strings.TrimPrefix "registry show {name/uuid}" $newHeader -}}
           {{- if eq $headerLevel 2 -}}
-            <h4><a style="font-weight: 600;" href="#{{- $cleanedID  -}}">{{ $newHeader | safeHTML }}<hr /></a></h4>
+            <hr />
+            <h4><a style="font-weight: 600;" href="#{{- $cleanedID  -}}">{{ $newHeader | safeHTML }}</a></h4>
           {{- else if eq $headerLevel 3 -}}
             <h5><a style="font-weight: 500; padding-bottom: 10px;" href="#{{- $cleanedID  -}}">{{ $newHeader | safeHTML }}</a></h5>
           {{- else -}}
@@ -76,7 +77,7 @@
           {{- end -}}
     {{- else -}}
     <li>
-      <h4><a style="font-weight: 700;" href="#{{- $cleanedID -}}">{{ $header | safeHTML }}<hr /></a></h4>
+      <h4><a href="#{{- $cleanedID -}}">{{ $header | safeHTML }}</a></h4>
     {{- end -}}
   {{- end -}}
   <!-- {{- $firstHeaderLevel := len (seq (index (findRE "[1-4]" (index $headers 0) 1) 0)) -}} -->
@@ -93,5 +94,6 @@
 </ul>
 </div>
 {{- end -}}
+
 
 </div>
