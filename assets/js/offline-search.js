@@ -14,7 +14,11 @@
         $searchInput.data('placement', 'bottom');
         $searchInput.data(
             'template',
-            '<div class="popover offline-search-result" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
+            `<div class="popover offline-search-result" role="tooltip">
+              <div class="arrow"></div>
+              <h3 class="popover-header"></h3>
+              <div class="popover-body"></div>
+            </div>`
         );
 
         //
@@ -55,13 +59,12 @@
                     // this.field('projects', { boost: 3 }); // example for an individual toxonomy called projects
                     this.field('description', { boost: 2 });
                     this.field('body');
-
                     data.forEach((doc) => {
                         this.add(doc);
-
                         resultDetails.set(doc.ref, {
                             title: doc.title,
                             excerpt: doc.excerpt,
+                            rootDir: doc.ref.split('/')[1]
                         });
                     });
                 });
@@ -90,6 +93,9 @@
             const results = idx
                 .query((q) => {
                     const tokens = lunr.tokenizer(searchQuery.toLowerCase());
+                    if (tokens.length > 1) q.term(tokens.join(' '), {
+                      boost: 200,
+                    });
                     tokens.forEach((token) => {
                         const queryString = token.toString();
                         q.term(queryString, {
@@ -101,9 +107,9 @@
                                 lunr.Query.wildcard.TRAILING,
                             boost: 10,
                         });
-                        q.term(queryString, {
-                            editDistance: 2,
-                        });
+                        // q.term(queryString, {
+                        //     editDistance: 1,
+                        // });
                     });
                 })
                 .slice(
@@ -122,7 +128,7 @@
                     .css({
                         display: 'flex',
                         justifyContent: 'space-between',
-                        marginBottom: '1em',
+                        marginBottom: '0em',
                     })
                     .append(
                         $('<h3>')
@@ -138,6 +144,14 @@
                     )
             );
 
+            $html.append(
+              $('<a>')
+                .addClass('left')
+                .attr('href', 'https://lunrjs.com/guides/searching.html')
+                .attr('target', '_blank')
+                .text('How to use search terms')
+            )
+
             const $searchResultBody = $('<div>').css({
                 maxHeight: `calc(100vh - ${
                     $targetSearchInput.offset().top -
@@ -145,6 +159,7 @@
                     180
                 }px)`,
                 overflowY: 'auto',
+                paddingBottom: '1rem',
             });
             $html.append($searchResultBody);
 
@@ -160,12 +175,12 @@
                       $searchInput.data('offline-search-base-href') +
                       r.ref.replace(/^\//, '');
 
-                      const $entry = $('<div>').addClass('mt-4');
+                      const $entry = $('<div>').addClass('mb-0');
 
-                      $entry.append(
-                          $('<small>').addClass('d-block text-muted').text(r.ref)
-                      );
-                      // console.log(doc)
+                      $entry.append($('<hr />'))
+                      const rootDir = (doc.rootDir == 'intel' || doc.rootDir == 'arm')
+                        ? `${doc.rootDir.toUpperCase()} | `
+                        : ""
                       $entry.append(
                           $('<a>')
                               .addClass('d-block')
@@ -173,10 +188,10 @@
                                   fontSize: '1rem',
                               })
                               .attr('href', href)
-                              .text(doc.title)
+                              .text(`${rootDir}${doc.title}`)
                       );
-
-                      $entry.append($('<p>').text(doc.excerpt));
+                      // $entry.append($('<b>').addClass('d-block').text(doc.rootDir));
+                      $entry.append($('<p>').addClass('mb-0').text(doc.excerpt));
 
                       $searchResultBody.append($entry);
                     }
