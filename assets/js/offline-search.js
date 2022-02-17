@@ -64,7 +64,7 @@
                         resultDetails.set(doc.ref, {
                             title: doc.title,
                             excerpt: doc.excerpt,
-                            rootDir: doc.ref.split('/')[1]
+                            rootDir: doc.ref.split('/')[2]
                         });
                     });
                 });
