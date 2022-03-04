@@ -33,6 +33,10 @@
 
   margin-top: 20px;
 
+  h1,h2,h3,h4,h5 {
+    font-size: 1em !important;
+  }
+
   a {
       display: block;
       font-weight: $font-weight-light;
