@@ -22,7 +22,10 @@
             {{ partial "version-banner.html" . }}
             {{ partial "arch-banner.html" . }}
             {{ if not .IsHome }}
-              {{ if not .Site.Params.ui.breadcrumb_disable }}{{ partial "breadcrumb.html" . }}{{ end }}
+              {{ if .Page.Parent.IsSection }}
+                {{ if not .Site.Params.ui.breadcrumb_disable }}{{ partial "breadcrumb.html" . }}{{ end }}
+                <hr class="panel-line">
+              {{ end }}
             {{ end }}
             {{ block "main" . }}{{ end }}
           </main>
