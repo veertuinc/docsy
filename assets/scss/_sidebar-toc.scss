@@ -6,8 +6,8 @@
 
     @supports (position: sticky) {
         position: sticky;
-        top: 0rem;
-        height: calc(100vh - 0rem);
+        top: 3.8rem;
+        height: calc(100vh - 3.5rem);
         overflow-y: auto;
     }
   
@@ -43,7 +43,7 @@
     }
 
     #TableOfContents {
-      padding: 10px;
+      padding: 5px;
         // Hugo's ToC is a mouthful, this can be used to style the top level h2 entries.
         > ul > li > ul > li > a {}
 
