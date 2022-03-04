@@ -50,10 +50,21 @@
 {{ $withChild := gt (len $pages) 0 -}}
 {{ $manualLink := cond (isset $s.Params "manuallink") $s.Params.manualLink ( cond (isset $s.Params "manuallinkrelref") (relref $s $s.Params.manualLinkRelref) $s.RelPermalink) -}}
 {{ $manualLinkTitle := cond (isset $s.Params "manuallinktitle") $s.Params.manualLinkTitle $s.Title -}}
-{{ $gettingStartedExposed := or ( or (eq $p.File.Dir "arm/") (eq $p.File.Dir "intel/") ) (eq $p.LinkTitle "What is Anka?") }}
+{{ $gettingStartedExposed := false }}
+{{ with $p.File }}
+  {{ $gettingStartedExposed = or ( or (eq .Dir "arm/") (eq .Dir "intel/") ) (eq $p.LinkTitle "What is Anka?") }}
+{{ end }}
 {{ $expanded := false }}
 {{ if and ($gettingStartedExposed) (eq $s.LinkTitle "Getting Started") }}
   {{ $expanded = true }}
+{{ end }}
+{{ $expand_sub_menu_items := false }}
+{{ $expand_sub_menu_items_root := "" }}
+{{ if $p.Params.expand_sub_menu_items }}
+  {{ $expand_sub_menu_items_root = $p }}
+  {{ if $s.IsDescendant $expand_sub_menu_items_root }}
+    {{ $expand_sub_menu_items = $p.Params.expand_sub_menu_items }}
+  {{ end }}
 {{ end }}
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section{{ if $withChild }} with-child{{ else }} without-child{{ end }}{{ if $activePath }} active-path{{ end }}{{ if (not (or $show $p.Site.Params.ui.sidebar_menu_foldable )) }} collapse{{ end }}" id="{{ $mid }}-li">
   {{ if (and $p.Site.Params.ui.sidebar_menu_foldable (ge $ulNr 1)) -}}
@@ -64,7 +75,7 @@
   {{- end }}
   {{- if $withChild }}
   {{- $ulNr := add $ulNr 1 }}
-  <ul class="ul-{{ $ulNr }}{{ if and (gt $ulNr 1) (not ($expanded))}} foldable{{end}}">
+  <ul class="ul-{{ $ulNr }}{{ if or ( and (gt $ulNr 1) (and (not ($expanded)) (not ($expand_sub_menu_items)) ) ) }} foldable{{end}}">
     {{ range $pages -}}
       {{ if not ($s.Params.hideSubPagesInLeftMenu) }}
       {{ if not (eq .LinkTitle "_partials") -}}
