@@ -1,5 +1,5 @@
 {{ if .Section }}
-  {{ if or (eq .Dir "arm/") (eq .Dir "intel/") }}
+  {{ if or (eq (path.Dir .) "arm/") (eq (path.Dir .) "intel/") }}
     {{ $color := "light" }}
     <div class="pageinfo pageinfo-{{ $color }}" style="color: #a07ddc;">
       You are viewing the <b>{{ .Section }}</b> version of our documentation.
