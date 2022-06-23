@@ -52,7 +52,7 @@
 {{ $manualLinkTitle := cond (isset $s.Params "manuallinktitle") $s.Params.manualLinkTitle $s.Title -}}
 {{ $gettingStartedExposed := false }}
 {{ with $p.File }}
-  {{ $gettingStartedExposed = or ( or (or (eq .Dir "arm/") (eq .Dir "intel/")) (eq .Dir "Anka Build Cloud/") ) (eq $p.LinkTitle "What is Anka?") }}
+  {{ $gettingStartedExposed = or ( or (or (eq .Dir "apple/") (eq .Dir "intel/")) (eq .Dir "Anka Build Cloud/") ) (eq $p.LinkTitle "What is Anka?") }}
 {{ end }}
 {{ $expanded := false }}
 {{ if and ($gettingStartedExposed) (eq $s.LinkTitle "Getting Started") }}
