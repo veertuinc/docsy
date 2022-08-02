@@ -55,7 +55,7 @@
   {{ $gettingStartedExposed = or ( or (or (eq .Dir "apple/") (eq .Dir "intel/")) (eq .Dir "Anka Build Cloud/") ) (eq $p.LinkTitle "What is Anka?") }}
 {{ end }}
 {{ $expanded := false }}
-{{ if and ($gettingStartedExposed) (eq $s.LinkTitle "Getting Started") }}
+{{ if or ($active) (and ($gettingStartedExposed) (eq $s.LinkTitle "Getting Started")) }}
   {{ $expanded = true }}
 {{ end }}
 {{ $expand_sub_menu_items := false }}
