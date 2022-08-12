@@ -178,7 +178,7 @@
                       const $entry = $('<div>').addClass('mb-0');
 
                       $entry.append($('<hr />'))
-                      const rootDir = (doc.rootDir == 'intel' || doc.rootDir == 'arm')
+                      const rootDir = (doc.rootDir == 'intel' || doc.rootDir == 'apple')
                         ? `${doc.rootDir.toUpperCase()} | `
                         : ""
                       $entry.append(
