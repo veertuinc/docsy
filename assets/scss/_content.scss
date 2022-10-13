@@ -19,14 +19,17 @@
     }
 
     h1, h2 {
+        font-weight: $font-weight-bold;
       margin-left: -1rem !important;
     }
 
     h3 {
+        font-weight: $font-weight-bold;
       margin-left: -0.7rem !important;
     }
 
     h4, h5 {
+        font-weight: $font-weight-bold;
       font-size: 1.1rem;
       margin-left: -0.3rem !important;
     }
@@ -69,6 +72,7 @@
     }
 
     > blockquote {
+        font-size: 0.9rem;
         padding: 0 0 0 1rem;
         margin-bottom: $spacer;
         color: $gray-600;
