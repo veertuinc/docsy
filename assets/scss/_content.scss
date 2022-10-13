@@ -5,6 +5,8 @@
 .td-content {
     order: 1;
 
+    font-size: 1.1rem;
+
     padding: 0rem 2rem 0px 0.8rem;
 
     p, li, td {
@@ -74,6 +76,7 @@
     }
 
     > ul li, > ol li {
+        font-size: 1.2rem;
         margin-bottom: .25rem;
     }
 
