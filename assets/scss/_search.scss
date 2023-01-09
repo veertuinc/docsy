@@ -2,7 +2,7 @@
 
 .td-search-input {
     background: transparent;
-    max-width: 90%;
+    max-width: 100%;
 
     &.form-control:focus {
         color: $gray-600;
@@ -11,7 +11,7 @@
     }
 
     @if $enable-rounded {
-        border-radius: 1rem;
+        border-radius: 0.4rem;
     }
 
     font-family: "Font Awesome 5 Free", $font-family-base;

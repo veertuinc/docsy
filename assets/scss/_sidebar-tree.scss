@@ -3,12 +3,12 @@
 //
 .td-sidebar-nav {
   padding-right: 0.5rem;
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-right: -24px;
+  margin-left: -21px;
 
   @include media-breakpoint-up(md) {
       @supports (position: sticky) {
-          max-height: calc(100vh - 9.1rem);
+          max-height: calc(100vh - 8.5rem);
           overflow-y: auto;
       }
   }
@@ -106,14 +106,15 @@
 }
 
 .td-sidebar {
+
   @include media-breakpoint-up(md) {
-      padding-top: 4.5rem;
+      padding-top: 4rem;
       background-color: $td-sidebar-bg-color;
-      padding-right: 1rem;
       border-right: 1px solid $td-sidebar-border-color;
   }
 
-
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
   padding-bottom: 1rem;
 
   &__toggle {
@@ -123,9 +124,9 @@
   }
 
   &__search {
-      padding: 1rem 15px;
-      margin-right: -15px;
-      margin-left: -15px;
+    border-bottom: 1px solid #e21e79;
+    padding: 0rem 0 0.7rem 0rem !important;
+    margin-bottom: 0.4rem;
   }
 
   &__inner {
@@ -134,7 +135,7 @@
       @include media-breakpoint-up(md) {
           @supports (position: sticky) {
               position: sticky;
-              top: 4rem;
+              top: 4.5rem;
               z-index: 10;
               height: calc(100vh - 6rem);
           }
