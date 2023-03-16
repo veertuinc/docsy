@@ -26,6 +26,7 @@ limitations under the License.
         }
         var headings = article.querySelectorAll('h1, h2, h3, h4, h5, h6');
         headings.forEach(function (heading) {
+            console.log(heading.id)
             if (heading.id) {
                 var a = document.createElement('a');
                 // set visibility: hidden, not display: none to avoid layout change

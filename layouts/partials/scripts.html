@@ -20,6 +20,13 @@ window.markmap = {
 <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader"></script>
 {{ end }}
 
+<script src='{{ .Page.Site.BaseURL }}js/tabpane-persist.js'></script>
+
+<!-- load the deflate.js for plantuml support -->
+{{ if .Site.Params.plantuml.enable }}
+<script src='{{ .Page.Site.BaseURL }}js/deflate.js'></script>
+{{ end }}
+
 <!-- load stylesheet and scripts for KaTeX support --> 
 {{ if .Site.Params.katex.enable }}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.css" integrity="sha384-Cqd8ihRLum0CCg8rz0hYKPoLZ3uw+gES2rXQXycqnL5pgVQIflxAUDS7ZSjITLb5" crossorigin="anonymous">
@@ -40,17 +47,8 @@ window.markmap = {
 {{ $jsMermaid := resources.Get "js/mermaid.js" | resources.ExecuteAsTemplate "js/mermaid.js" . }}
 {{ $jsMarkmap := resources.Get "js/markmap.js" | resources.ExecuteAsTemplate "js/markmap.js" . }}
 {{ $jsPlantuml := resources.Get "js/plantuml.js" | resources.ExecuteAsTemplate "js/plantuml.js" . }}
-{{ $js1 := (slice $jsBase $jsAnchor $jsSearch $jsMermaid $jsPlantuml $jsMarkmap) | resources.Concat "/js/tabpane-persist.js" }}
-<script src="{{ $js1.RelPermalink }}"></script>
-<!-- load the deflate.js for plantuml support -->
-{{ if .Site.Params.plantuml.enable }}
-{{ $js2 := (slice $jsBase $jsAnchor $jsSearch $jsMermaid $jsPlantuml $jsMarkmap) | resources.Concat "/js/deflate.js" }}
-<script src="{{ $js2.RelPermalink }}"></script>
-{{ end }}
-
 {{ if .Site.Params.offlineSearch }}
-{{ $js3 := (slice $jsBase $jsAnchor $jsSearch $jsMermaid $jsPlantuml $jsMarkmap) | resources.Concat "js/offline-search.js" }}
-<script src="{{ $js3.RelPermalink }}"></script>
+{{ $jsSearch = resources.Get "js/offline-search.js" }}
 {{ end }}
 {{ $js := (slice $jsBase $jsAnchor $jsSearch $jsMermaid $jsPlantuml $jsMarkmap) | resources.Concat "js/main.js" }}
 {{ if not hugo.IsProduction }}
@@ -61,7 +59,6 @@ window.markmap = {
 {{ end }}
 {{ if .Site.Params.prism_syntax_highlighting }}
 <!-- scripts for prism -->
-{{ $js4 := (slice $jsBase $jsAnchor $jsSearch $jsMermaid $jsPlantuml $jsMarkmap) | resources.Concat "/js/prism.js" }}
-<script src="{{ $js4.RelPermalink }}"></script>
+<script src='{{ .Page.Site.BaseURL }}js/prism.js'></script>
 {{ end }}
 {{ partial "hooks/body-end.html" . }}
