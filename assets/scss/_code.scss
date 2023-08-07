@@ -5,7 +5,7 @@
     .highlight {
         @extend .card;
 	
-        margin: 0.3rem 0.5rem 1rem;
+        margin: 0.7rem 0.3rem 0.3rem 0.3rem;
         padding: 0;
 	    
         pre {
@@ -32,6 +32,7 @@
 
     // Code blocks
     pre {
+        margin-top: 1rem;
         word-wrap: normal;
         background-color: $gray-100;
         padding: $spacer;
