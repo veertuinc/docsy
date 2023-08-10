@@ -13700,11 +13700,6 @@ nav.foldable-nav .with-child ul {
   .td-content > h3, .td-content > h4, .td-content > h5, .td-content > h6 {
     margin-bottom: 1rem;
     margin-top: 2rem; }
-  .td-content > blockquote {
-    padding: 0 0 0 1rem;
-    margin-bottom: 1rem;
-    color: #797676;
-    border-left: 6px solid #e21e79; }
   .td-content > ul li, .td-content > ol li {
     margin-bottom: .25rem; }
   .td-content strong {

@@ -69,6 +69,7 @@ $hint-colors: (
 
 
 .hint {
+  border-left: 6px solid $secondary;
   margin: 1.3rem 0 0rem 0;
   padding: 15px !important;
   color: rgb(84, 84, 84) !important;
