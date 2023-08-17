@@ -59,6 +59,11 @@ ol {
   margin-inline-start: 0rem !important;
   margin-inline-end: 0px !important;
   padding-inline-start: 25px !important;
+
+  .hint {
+    margin: 0.5rem;
+    padding: 0.5rem;
+  }
 }
 
 $hint-colors: (
@@ -67,11 +72,10 @@ $hint-colors: (
   danger: #f66,
 ) !default;
 
-
 .hint {
   border-left: 6px solid $secondary;
   margin: 1.3rem 0 0rem 0;
-  padding: 15px !important;
+  padding: 15px;
   color: rgb(84, 84, 84) !important;
   @each $name, $color in $hint-colors {
     &.#{$name} {
