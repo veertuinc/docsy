@@ -9,12 +9,15 @@
 
     padding: 0.5rem 2rem 0px 0.8rem;
 
+    p {
+      margin: 0.8rem 0;
+    }
     p, li, td {
         font-weight: $font-weight-body-text;
     }
 
     h1, h2, h3, h4, h5, h6 {
-      color: #624495;
+      color: $veertu-purple;
     }
 
     > h1 {
@@ -33,6 +36,7 @@
     }
 
     h4 {
+      border-bottom: 1px solid #ccc;
       font-weight: $font-weight-bold;
       font-size: 1.1rem;
       margin-left: -0.3rem !important;
@@ -70,7 +74,7 @@
     }
 
     img {
-        margin-top: 1rem;
+        margin: 1rem 0;
         @extend .img-fluid;
     }
 
