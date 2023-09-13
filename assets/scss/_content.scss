@@ -16,6 +16,10 @@
         font-weight: $font-weight-body-text;
     }
 
+    ul {
+      margin-top: 0.4rem;
+    }
+
     h1, h2, h3, h4, h5, h6 {
       color: $veertu-purple;
     }
@@ -90,6 +94,10 @@
         // padding: 0 0 0 1rem;
         margin-bottom: $spacer;
         color: $gray-600;
+
+        > p {
+          margin: 0px;
+        }
     }
 
     > ul li, > ol li {
