@@ -1,3 +1,34 @@
-{{ $file := .Get "file" }}
+{{ if ge hugo.Version "0.93.0" }}
+  {{ .Page.Store.Add "Ordinal" 1 }}
+{{ end }}
+{{/*  {{ printf "Current directory: %s" .Page.File.Dir | warnf }}  */}}
+
+{{ $.Scratch.Set "filepath" "/content/" }}
+{{ if .IsNamedParams }}
+	{{ $.Scratch.Add "filepath" ( .Get "file" ) }}
+{{ else }}
+	{{ $.Scratch.Add "filepath" ( .Get 0 ) }}
+{{ end }}
+{{/*  {{ printf "filepath: %s" ($.Scratch.Get "filepath") | warnf }}  */}}
+
+{{/* If the file exists, read it and highlight it if it's code.
+Throw a compile error or print an error on the page if the file is not found */}}
+
+{{ if fileExists ($.Scratch.Get "filepath") }}
+  {{ if eq (.Get "code") "true" }}
+    {{- highlight ($.Scratch.Get "filepath" | readFile | htmlUnescape |
+    safeHTML ) (.Get "lang") "" -}}
+  {{ else }}
+    {{ $path := .Site.GetPage ($.Scratch.Get "filepath") }}
+    {{ $path.Content }}
+    {{/*  {{- $.Scratch.Get "filepath" | os.ReadFile | .Page.RenderString | safeHTML -}}  */}}
+  {{ end }}
+{{ else if eq (.Get "draft") "true" }}
+
+  <p style="color: #D74848"><b><i>The file <code>{{ $.Scratch.Get "filepath" }}</code> was not found.</i></b></p> 
+
+{{ else }}{{- errorf "Shortcode %q: file %q not found at %s" .Name ($.Scratch.Get "filepath") .Position -}}{{ end }}
+
+{{/*  {{ $file := .Get "file" }}
 {{ $path := .Site.GetPage $file }}
-{{ $path.Content }}
+{{ $path.Content }}  */}}
