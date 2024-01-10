@@ -15,14 +15,14 @@
 Throw a compile error or print an error on the page if the file is not found */}}
 
 {{ if fileExists ($.Scratch.Get "filepath") }}
-  {{ if eq (.Get "code") "true" }}
+  {{/*  {{ if eq (.Get "code") "true" }}
     {{- highlight ($.Scratch.Get "filepath" | readFile | htmlUnescape |
     safeHTML ) (.Get "lang") "" -}}
-  {{ else }}
+  {{ else }}  */}}
     {{ $path := .Site.GetPage ($.Scratch.Get "filepath") }}
     {{ $path.Content }}
     {{/*  {{- $.Scratch.Get "filepath" | os.ReadFile | .Page.RenderString | safeHTML -}}  */}}
-  {{ end }}
+  {{/*  {{ end }}  */}}
 {{ else if eq (.Get "draft") "true" }}
 
   <p style="color: #D74848"><b><i>The file <code>{{ $.Scratch.Get "filepath" }}</code> was not found.</i></b></p> 
