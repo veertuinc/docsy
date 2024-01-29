@@ -1,0 +1,14 @@
+.table {
+  table-layout: fixed;
+  display:table !important;
+
+  td {
+    padding: .5em!important;
+    text-wrap: balance;
+    overflow-wrap: break-word
+  }
+  th:first-child,
+  td:first-child {
+      font-weight: bold;
+  }
+}

@@ -3,6 +3,8 @@
 @import "variables";
 @import "support/mixins";
 
+@import "custom";
+
 @import "../vendor/bootstrap/scss/bootstrap";
 
 @import "../vendor/Font-Awesome/scss/fontawesome.scss";
@@ -27,7 +29,6 @@
 @import "section-index";
 @import "pageinfo";
 @import "taxonomy";
-@import "custom";
 
 .emojifont {
   font-family: Apple Color Emoji,Segoe UI Emoji,NotoColorEmoji,Segoe UI Symbol,Android Emoji,EmojiSymbols,EmojiOne Mozilla!important;
