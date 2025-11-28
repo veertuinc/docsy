@@ -22,9 +22,7 @@
             {{ $manualLink := cond (isset .Params "manuallink") .Params.manualLink ( cond (isset .Params "manuallinkrelref") (relref . .Params.manualLinkRelref) .RelPermalink) }}
             <a class="entry" href="{{ $manualLink }}"{{ with .Params.manualLinkTitle }} title="{{ . }}"{{ end }}{{ with .Params.manualLinkTarget }} target="{{ . }}"{{ if eq . "_blank" }} rel="noopener"{{ end }}{{ end }}>
                 {{ if ($parent.Params.showBaseDirName) }}<h4>{{ upper (path.Base (path.Dir .)) }}</h4>{{ end }}
-                <h5>
-                    {{- .Title -}}
-                </h5>
+                <h5>{{- .Title -}}</h5>
                 <p>{{ .Description | markdownify }}</p>
             </a>
         {{ end }}
