@@ -18,3 +18,69 @@
   height: 60vh;
   overflow-y: auto;
 }
+
+.compat-matrix-wrapper {
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.compat-matrix {
+  width: 100%;
+  min-width: 20rem;
+  border-collapse: collapse;
+  text-align: center;
+
+  th,
+  td {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    vertical-align: middle;
+  }
+
+  thead th {
+    font-weight: 700;
+    line-height: 1.35;
+
+    &:first-child {
+      text-align: left;
+    }
+  }
+
+  tbody th {
+    font-weight: 600;
+    text-align: left;
+  }
+
+  &__head-intel {
+    background-color: #f2e6ff;
+  }
+
+  &__head-arm {
+    background-color: #ccebff;
+  }
+
+  &__cell {
+    font-size: 1.5rem;
+    font-weight: 400;
+
+    &--unsupported {
+      background-color: #c0392b;
+      color: #fff;
+    }
+
+    &--partial {
+      background-color: #2ecc71;
+    }
+
+    &--supported {
+      background-color: #2ecc71;
+    }
+  }
+
+  &__footnote-mark {
+    font-size: 0.55em;
+    font-weight: 700;
+    vertical-align: super;
+    margin-left: 0.1em;
+  }
+}
