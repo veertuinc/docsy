@@ -72,7 +72,7 @@ $hint-colors: (
   danger: #f66,
 ) !default;
 
-.hint {
+.td-content .hint {
   border-left: 6px solid $secondary;
   margin: 1.3rem 0 0rem 0;
   padding: 15px;
@@ -88,6 +88,7 @@ $hint-colors: (
   }
   h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     margin-top: 0rem !important;
+    margin-left: 0 !important;
   }
   * + h1, * + h2, * + h3, * + h4, * + h5, * + h6,
   * + .h1, * + .h2, * + .h3, * + .h4, * + .h5, * + .h6 {
